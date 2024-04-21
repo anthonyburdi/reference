@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "fastapi-reference"
+version = "0.1.0"
+description = "Reference implementations of fastapi and exploratory code"
+authors = ["Anthony Burdi <anthonyburdi@gmail.com>"]
+readme = "README.md"
+packages = [{include = "fastapi"}]
+
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.110.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
