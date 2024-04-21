@@ -22,15 +22,15 @@ async def root():
 # Pass parameters with the same syntax as python format strings
 @app.get("/items/{item_id}")
 async def read_item(item_id):  # Note: no data validation since item_id is of type Any
-    """{BASE_URL}/items/foo will return JSON response: {"item_id":"foo"}"""
+    """http://127.0.0.1:8000/items/foo will return JSON response: {"item_id":"foo"}"""
     return {"item_id": item_id}
 
 @app.get("/int_items/{item_id}")
 async def read_int_item(item_id: int):  # Note: data validation for `int`
     """Data validation performed based on python type hint.
-    - {BASE_URL}/items/1 will return JSON response: {"item_id":1}
-    - {BASE_URL}/items/foo will return JSON response with error.
-    - {BASE_URL}/items/4.2 will return JSON response with error.
+    - http://127.0.0.1:8000/items/1 will return JSON response: {"item_id":1}
+    - http://127.0.0.1:8000/items/foo will return JSON response with error.
+    - http://127.0.0.1:8000/items/4.2 will return JSON response with error.
     """
     return {"item_id": item_id}
 
@@ -43,8 +43,8 @@ class MyEnum(str, Enum):
 async def read_enum(enum: MyEnum):
     """Validates that path param can only be one of the enum values in MyEnum.
     
-    E.g. only {BASE_URL}/enum/val1 or {BASE_URL}/enum/val2 are acceptable, other
-    values return an error response.
+    E.g. only http://127.0.0.1:8000/enum/val1 or http://127.0.0.1:8000/enum/val2 are acceptable, other
+    values return an error response http://127.0.0.1:8000/enum/this_will_error.
     """
     return {"enum": enum}
 
@@ -52,8 +52,24 @@ async def read_enum(enum: MyEnum):
 @app.get("/filepath/{file_path:path}")
 async def read_file(file_path: str):
     """Use `:path` after the parameter to take an actual filepath.
-    - {BASE_URL}/files/home/johndoe/myfile.txt -> {"file_path":"home/johndoe/myfile.txt"}
+    - http://127.0.0.1:8000/filepath/home/johndoe/myfile.txt -> {"file_path":"home/johndoe/myfile.txt"}
     Or with leading slash:
-    - {BASE_URL}/files//home/johndoe/myfile.txt -> {"file_path":"/home/johndoe/myfile.txt"}
+    - http://127.0.0.1:8000/filepath//home/johndoe/myfile.txt -> {"file_path":"/home/johndoe/myfile.txt"}
     """
     return {"file_path": file_path}
+
+
+@app.get("/query_params/")
+async def query_params(
+    required: str,
+    optional: str | None = None,
+    default: int = 0,
+    boolean: bool = False
+):
+    """Query params are params in the function but not the path in the decorator.
+    - http://127.0.0.1:8000/query_params/?required=hi&boolean=no -> 
+    {"required":"hi","optional":null,"default":0,"boolean":false}
+    - http://127.0.0.1:8000/query_params/?required=hi&optional=hola&boolean=True ->
+    {"required":"hi","optional":"hola","default":0,"boolean":true}
+    """
+    return {"required": required, "optional": optional, "default": default, "boolean": boolean}
