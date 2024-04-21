@@ -2,7 +2,8 @@
 
 ## FastAPI
 
-[Docs](https://fastapi.tiangolo.com/) [pypi](https://pypi.org/project/fastapi/) [repo](https://github.com/tiangolo/fastapi)
+- [Docs](https://fastapi.tiangolo.com/) [pypi](https://pypi.org/project/fastapi/) [repo](https://github.com/tiangolo/fastapi)
+- [Awesome FastAPI](https://github.com/mjhea0/awesome-fastapi) [Awesome FastAPI Projects](https://github.com/Kludex/awesome-fastapi-projects)
 
 ## Dev setup
 
@@ -30,3 +31,7 @@ Typical HTTP Methods:
 - GET: to read data.
 - PUT: to update data.
 - DELETE: to delete data.
+
+### Async links
+
+[When to use async vs sync functions](https://fastapi.tiangolo.com/async/#in-a-hurry)
