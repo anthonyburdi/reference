@@ -1,5 +1,9 @@
 # FastAPI Reference Examples
 
+## FastAPI
+
+[Docs](https://fastapi.tiangolo.com/) [pypi](https://pypi.org/project/fastapi/) [repo](https://github.com/tiangolo/fastapi)
+
 ## Dev setup
 
 ### Run the live server
