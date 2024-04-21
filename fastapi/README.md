@@ -32,6 +32,22 @@ Typical HTTP Methods:
 - PUT: to update data.
 - DELETE: to delete data.
 
-### Async links
+### Async
 
 [When to use async vs sync functions](https://fastapi.tiangolo.com/async/#in-a-hurry)
+
+### Path params and Data Validation
+
+Path params are specified via f-string syntax. Data validation performed based on the
+type hint. E.g.:
+
+```python
+@app.get("/int_items/{item_id}")
+async def read_int_item(item_id: int):  # Note: data validation for `int`
+    """Data validation performed based on python type hint.
+    - {BASE_URL}/items/1 will return JSON response: {"item_id":1}
+    - {BASE_URL}/items/foo will return JSON response with error.
+    - {BASE_URL}/items/4.2 will return JSON response with error.
+    """
+    return {"item_id": item_id}
+```
