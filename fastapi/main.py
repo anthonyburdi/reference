@@ -47,3 +47,13 @@ async def read_enum(enum: MyEnum):
     values return an error response.
     """
     return {"enum": enum}
+
+
+@app.get("/filepath/{file_path:path}")
+async def read_file(file_path: str):
+    """Use `:path` after the parameter to take an actual filepath.
+    - {BASE_URL}/files/home/johndoe/myfile.txt -> {"file_path":"home/johndoe/myfile.txt"}
+    Or with leading slash:
+    - {BASE_URL}/files//home/johndoe/myfile.txt -> {"file_path":"/home/johndoe/myfile.txt"}
+    """
+    return {"file_path": file_path}
