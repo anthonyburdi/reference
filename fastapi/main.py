@@ -34,3 +34,16 @@ async def read_int_item(item_id: int):  # Note: data validation for `int`
     """
     return {"item_id": item_id}
 
+from enum import Enum
+class MyEnum(str, Enum):
+    val1 = "val1"
+    val2 = "val2"
+
+@app.get("/enum/{enum}")
+async def read_enum(enum: MyEnum):
+    """Validates that path param can only be one of the enum values in MyEnum.
+    
+    E.g. only {BASE_URL}/enum/val1 or {BASE_URL}/enum/val2 are acceptable, other
+    values return an error response.
+    """
+    return {"enum": enum}

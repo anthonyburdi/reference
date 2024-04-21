@@ -39,7 +39,7 @@ Typical HTTP Methods:
 ### Path params and Data Validation
 
 Path params are specified via f-string syntax. Data validation performed based on the
-type hint. E.g.:
+type hint, including Enums. E.g.:
 
 ```python
 @app.get("/int_items/{item_id}")
