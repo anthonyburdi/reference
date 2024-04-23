@@ -73,3 +73,23 @@ async def query_params(
     {"required":"hi","optional":"hola","default":0,"boolean":true}
     """
     return {"required": required, "optional": optional, "default": default, "boolean": boolean}
+
+
+from pydantic import BaseModel
+from decimal import Decimal
+
+class Item(BaseModel):
+    name: str
+    description: str | None = None
+    price: Decimal
+    tax_pct: Decimal | None = None
+
+@app.post("/items/{item_id}")
+async def create_item(item_id: int, item: Item, optional_query_param: str | None = None):
+    """Reads request body as JSON, convert to Item type & validate data.
+    Can be combined with path and/or query params.
+    https://fastapi.tiangolo.com/tutorial/body/#request-body-path-query-parameters
+    """
+    with_tax = item.price * (1 + item.tax_pct)
+    print(f"Item price: {item.price}, with tax: {with_tax}. Query param: {optional_query_param}")
+    return {"item_id": item_id, "price_with_tax": with_tax, "optional_query_param": optional_query_param, **item.model_dump()}
