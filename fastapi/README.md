@@ -5,7 +5,7 @@
 These examples are created for fastapi:
 
 - v0.110.2
-- Through Request Body in the Tutorial - User Guide: https://fastapi.tiangolo.com/tutorial/body/
+- Through Request Body in the [Tutorial - User Guide](https://fastapi.tiangolo.com/tutorial/body/)
 
 ## FastAPI
 
