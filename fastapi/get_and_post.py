@@ -3,6 +3,8 @@
 - Using validation including using a pydantic model
 - Sending a request body via POST route
 
+To run this app, use `uvicorn get_and_post:get_and_post_app --reload`
+
 It covers the following sections of the FastAPI tutorial (https://fastapi.tiangolo.com/tutorial/body/):
 - First Steps
 - Path Parameters
