@@ -1,3 +1,15 @@
+"""This module shows examples of:
+- Setting up GET routes using path & query params
+- Using validation including using a pydantic model
+- Sending a request body via POST route
+
+It covers the following sections of the FastAPI tutorial (https://fastapi.tiangolo.com/tutorial/body/):
+- First Steps
+- Path Parameters
+- Query Parameters
+- Request Body
+"""
+
 from fastapi import FastAPI
 from enum import Enum
 from pydantic import BaseModel
