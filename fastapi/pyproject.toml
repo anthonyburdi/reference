@@ -10,6 +10,7 @@ packages = [{include = "fastapi"}]
 [tool.poetry.dependencies]
 python = "^3.12"
 fastapi = "^0.110.2"
+python-multipart = "^0.0.9"  # form data for username/password auth, see https://fastapi.tiangolo.com/tutorial/security/first-steps/#run-it
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.4.1"

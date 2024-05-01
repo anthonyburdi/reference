@@ -20,10 +20,11 @@ These examples are created for fastapi:
 uvicorn main:app --reload
 ```
 
-Where `app` is the instance of FastAPI() you created e.g. `app = FastAPI()` and `main` is the file defining your API e.g. `main.py`. For example, to use the app in this repo, use:
+Where `app` is the instance of FastAPI() you created e.g. `app = FastAPI()` and `main` is the file defining your API e.g. `main.py`. For example, to use an app in this repo, use any of the following:
 
 ```bash
 uvicorn get_and_post:get_and_post_app --reload
+uvicorn auth_example:auth_example_app --reload
 ```
 
 ### API Docs
