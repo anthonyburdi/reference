@@ -11,7 +11,7 @@ terraform {
 
 # Provider specific configuration
 provider "aws" {
-  region  = "us-west-2"
+  region = "us-west-2"
 }
 
 # Components of the infrastructure
