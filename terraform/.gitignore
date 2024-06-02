@@ -37,4 +37,10 @@ override.tf.json
 terraform.rc
 
 # Ignore hcl file
-.terraform.lock.hcl
+# Note: Lock file should be committed to version control so commenting this line out:
+# .terraform.lock.hcl
+# From terraform CLI:
+# "Terraform has created a lock file .terraform.lock.hcl to record the provider
+# selections it made above. Include this file in your version control repository
+# so that Terraform can guarantee to make the same selections by default when
+# you run "terraform init" in the future.""
