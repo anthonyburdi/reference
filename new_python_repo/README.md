@@ -36,9 +36,10 @@ These are prerequisites to install before creating all repos.
 
 ### Repo Setup
 
-1. `pyenv local 3.11` - Set pyenv version
+1. `pyenv local 3.12` - Set pyenv version
 1. `poetry init` - Set up Poetry for this repo
-1. `poetry shell` - If you haven't installed the python version you want to use, see Global Setup. Then change the poetry env using `poetry env use 3.11` (for python v3.11.latest)
+1. `poetry install`
+1. `eval $(poetry env activate)` - activate the virtual environment
 1. `poetry add --group dev 'ruff'` - For linting
 1. `poetry add --group dev 'mypy'` - For type checking
 1. `poetry add --group dev 'pre-commit'` - For running linting on commit. See example config in this directory.
