@@ -6,7 +6,7 @@ Concurrency is the management of multiple tasks that overlap in execution, while
 
 ## Libraries
 
-- [asyncio](https://docs.python.org/3/library/asyncio.html) - Write concurrent code using the async/await syntax.
+- [asyncio](https://docs.python.org/3/library/asyncio.html) - Write concurrent code using the async/await syntax. asyncio itself does not use threads. It achieves concurrency using a single thread and an event loop.
 - [multiprocessing](https://docs.python.org/3/library/multiprocessing.html) - Multiple processes run in parallel, each with its own memory space and interpreter
 - [threading](https://docs.python.org/3/library/threading.html) - Multiple threads in one process, sharing memory and resources.
 - [Celery distributed task queue](https://github.com/celery/celery?tab=readme-ov-file) - Distributed task queue - run tasks asynchronously or in parallel across multiple nodes.
